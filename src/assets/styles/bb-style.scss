@@ -1,0 +1,26 @@
+@import '@angular/material/theming';
+@include mat-core();
+
+$bb-primary-color: (
+    50 : #e1e4e1,
+    100 : #b3bdb3,
+    200 : #819181,
+    400 : #294328,
+    500 : #032202,
+    600 : #031e02,
+    700 : #021901,
+    800 : #021401,
+    900 : #010c01,
+    A100 : #50ff50,
+    A200 : #1dff1d,
+    A400 : #00e900,
+    A700 : #00cf00,
+    300 : #4f644e,
+
+);
+
+$bb-primary-palette: mat-palette($bb-primary-color);
+
+$bb-theme: mat-light-theme($bb-primary-palette);
+
+@include angular-material-theme($bb-theme);
