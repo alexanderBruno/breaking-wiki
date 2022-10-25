@@ -12,6 +12,7 @@ export class QuotesComponent implements OnInit, OnDestroy {
 
   quotes: Quote[] = [];
   quotesSub: Subscription = new Subscription();
+  quotesRecovery: Quote[] = [];
 
   constructor(private quoteService: QuotesService) { }
 
@@ -27,8 +28,22 @@ export class QuotesComponent implements OnInit, OnDestroy {
     this.quotesSub = this.quoteService.getQuotes().subscribe(
       (q) => {
         this.quotes = q;
+        this.quotesRecovery = q;
       }
     )
   }
+
+  filterQuotes(event: any) {
+    let name = event.target.value;
+    if (name) {
+      console.log('hay sustancia')
+        
+      this.quotes = this.quotesRecovery.filter(quoName => quoName.author.toLocaleLowerCase().includes(name));
+      
+    } else {
+      this.quotes = this.quotesRecovery;
+    }
+  }
+
 
 }

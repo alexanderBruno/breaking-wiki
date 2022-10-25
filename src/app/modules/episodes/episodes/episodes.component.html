@@ -1,4 +1,7 @@
-<nav aria-label="...">
+<h1>Episodes list</h1>
+<nav>
+  <div style="padding: 2em; display: block ruby; text-align: center; margin: 2em;">
+    <label>Filter by season: </label>
     <ul class="pagination">
         <li class="page-item">
             <a class="page-link" (click)="episodes = episodesRecovery">All</a>
@@ -16,9 +19,14 @@
             <a class="page-link" (click)="getEpisodesBySeason('4')">4</a>
         </li>
     </ul>
+    <label>Filter by title: </label>
+
+    <input type="text" class="form-control" style="width: 30em;" placeholder="Search episodes" (input)="filter($event)">
+  </div>
 </nav>
 
-<table class="table">
+<div style="margin: 4em;">
+  <table class="table">
     <thead>
       <tr>
         <th scope="col">Episode</th>
@@ -34,8 +42,30 @@
         <td>{{episode.season}}</td>
         <td>{{episode.air_date}}</td>
         <td>{{episode.title}}</td>
-        <td>TEST</td>
+        <td><button type="button" class="btn btn-primary" (click)="seeCharacters(episode.characters)">See characters</button>
+        </td>
       </tr>
     </tbody>
   </table>
+</div>
 
+
+  <div class="modal" tabindex="-1" *ngIf="displayCharacters" style="display: block;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Characters list</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="displayCharacters = false"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let character of selectedCharactersList" (click)="navigateCharacter(character)">
+              {{character}}
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="displayCharacters = false">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

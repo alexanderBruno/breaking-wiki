@@ -8,6 +8,9 @@ import { CharactersRoutingModule } from './characters-routing.module';
 import { CharactersService } from './characters.service';
 import {MatCardModule} from '@angular/material/card'; 
 import {MatGridListModule} from '@angular/material/grid-list';
+import { QuotesService } from '../quotes/quotes.service';
+import { QuoteCardComponent } from 'src/app/components/quote-card/quote-card.component';
+import { DeathsService } from '../deaths/deaths.service';
 
 
 
@@ -18,14 +21,17 @@ import {MatGridListModule} from '@angular/material/grid-list';
   ],
   providers:[
     { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
-    CharactersService
+    CharactersService,
+    QuotesService,
+    DeathsService
   ],
   imports: [
     CommonModule,
     CharactersRoutingModule,
     HttpClientModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    QuoteCardComponent
   ]
 })
 export class CharactersModule { }

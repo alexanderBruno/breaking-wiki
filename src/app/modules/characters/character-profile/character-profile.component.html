@@ -1,1 +1,96 @@
-<p>character-profile works!</p>
+
+<div class="container text-left" *ngIf="character">
+    <div class="row row-cols-3">
+        <div class="col-sm-2">
+            <img [src]="character.img" class="card-img-top" alt="...">
+        </div>
+        <div class="col-sm-10">
+            <h1 class="name-title">{{character.name}} profile</h1>
+            <div class="row row-cols-4">
+
+                <!-- Name -->
+                <div class="col">
+                    <p class="fw-semibold">Name</p>
+                </div>
+                <div class="col">
+                    <p>{{character.name}}</p>
+                </div>
+
+                <!-- Nickname -->
+                <div class="col"><p class="fw-semibold">also known as</p></div>
+                <div class="col">{{character.nickname}}</div>
+
+                <!-- Birthday -->
+                <div class="col"><p class="fw-semibold">Birthday</p></div>
+                <div class="col">{{character.birthday}}</div>
+
+                <!-- Status -->
+                <div class="col"><p class="fw-semibold">Status</p></div>
+                <div class="col">
+                    <i *ngIf="character.status === 'Alive'" class="bi-heart-pulse-fill" style="font-size: 1rem;"></i>
+                    <i *ngIf="character.status === 'Deceased'" class="bi-heartbreak" style="font-size: 1rem;"></i>
+                    <i *ngIf="character.status === 'Presumed dead'" class="bi-question-circle" style="font-size: 1rem;"></i>
+                    {{character.status}}
+                </div>
+
+                <!-- Occupation -->
+                <div class="col"><p class="fw-semibold">Occupation</p></div>
+                <div class="col">
+                    <p *ngFor="let occupation of character.occupation">
+                        {{occupation}}
+                    </p>
+                </div>
+
+
+                <!-- Portrayed by -->
+                <div class="col"><p class="fw-semibold">Portrayed by</p></div>
+                <div class="col">{{character.portrayed}}</div>
+
+                <!-- Category -->
+                <div class="col"><p class="fw-semibold">Category</p></div>
+                <div class="col">{{character.category}}</div>
+
+                <!-- Better call saul -->
+                <div class="col"><p class="fw-semibold">Better Call Saul Apparence</p></div>
+                <div class="col">
+                    <p *ngFor="let bcs of character.better_call_saul_appearance">
+                        {{bcs}}
+                    </p>
+                </div>  
+
+                <div class="col"><p class="fw-semibold">Killed</p></div>
+                <div class="col">
+                    {{deathCount.deathCount}} persons.
+                </div>
+
+            </div>
+            <div *ngIf="death" class="row row-cols-4 death-con">
+                <div class="col"><p class="fw-semibold">Killed by</p></div>
+                <div class="col">
+                    {{death.responsible}}
+                </div>
+
+                <div class="col"><p class="fw-semibold">Cause</p></div>
+                <div class="col">
+                    {{death.cause}}
+                </div>
+
+                <div class="col"><p class="fw-semibold">Last words</p></div>
+                <div class="col">
+                    {{death.last_words}}
+                </div>
+
+            </div>
+      </div>
+    </div>
+    <br>
+    <h1>{{character.name}} quotes</h1>
+    <div class="container text-center">
+        <div class="row row-cols-2">
+            <div *ngFor="let quote of quotes">
+                <app-quote-card [quote]="quote"></app-quote-card>
+            </div>
+        </div>
+    </div>
+</div>
+

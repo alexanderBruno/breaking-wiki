@@ -11,6 +11,16 @@ export class CharactersService {
   constructor(private http: HttpClient) { }
 
   getCharacters(): Observable<Character[]> {
-    return this.http.get<Character[]>('characters')
+    return this.http.get<Character[]>('characters');
+  }
+
+  getCharacter(id: string): Observable<Character[]> {
+    return this.http.get<Character[]>('characters/' + id);
+  }
+
+  getCharacterByName(name: string): Observable<Character[]> {
+    name = name.replace(/ /g, '_');
+    console.log('name: ',name)
+    return this.http.get<Character[]>('characters?name=' + name);
   }
 }

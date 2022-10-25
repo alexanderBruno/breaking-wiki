@@ -7,7 +7,8 @@ const routes: Routes = [
     {
         path: '',
         component: CharactersListComponent
-    }, {
+    }, 
+    {
         path: ':id',
         component: CharacterProfileComponent
     }

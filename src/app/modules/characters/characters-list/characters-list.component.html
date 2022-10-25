@@ -1,12 +1,20 @@
-<div class="row row-cols-3">
+<div style="padding: 2em; display: block ruby; text-align: center; margin: 2em;">
+  <input type="text" class="form-control" style="width: 30em;" placeholder="Search characters" (input)="filter($event)">
+</div>
+
+
+<div class="container text-center">
+
+  <div class="row row-cols-3">
     <div class="col" *ngFor="let character of characters">
         <div class="card" style="width: 18rem;">
             <img [src]="character.img" class="card-img-top" alt="...">
             <div class="card-body">
               <h2 class="card-title">{{character.name}}</h2>
               <p class="card-text"> {{character.nickname}} </p>
-              <a href="#" class="btn btn-primary">See profile</a>
+              <a class="btn btn-primary" [routerLink]="[character.char_id]">See profile</a>
             </div>
         </div>
     </div>
   </div>
+</div>

@@ -1,3 +1,9 @@
+$bb-color: #093009;
+
 .main {
     margin: 2em;
+}
+
+.btn, .btn-primary {
+    background-color: $bb-color;
 }

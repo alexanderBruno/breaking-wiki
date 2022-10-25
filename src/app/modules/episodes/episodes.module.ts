@@ -5,6 +5,7 @@ import { EpisodesRoutingModule } from './episodes-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ApiInterceptor } from 'src/app/core/apiInterceptor';
 import { EpisodesService } from './episodes.service';
+import { CharactersService } from '../characters';
 
 
 
@@ -19,7 +20,8 @@ import { EpisodesService } from './episodes.service';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
-    EpisodesService
+    EpisodesService,
+    CharactersService
   ]
 })
 export class EpisodesModule { }

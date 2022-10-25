@@ -10,7 +10,6 @@ import { MainComponent } from './main.component';
   imports: [
     CommonModule,
     MainRoutingModule
-  //  CharactersModule
   ]
 })
 export class MainModule { }

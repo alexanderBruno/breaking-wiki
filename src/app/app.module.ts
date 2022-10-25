@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToolBarComponent } from './components/tool-bar/tool-bar.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ApiInterceptor } from './core/apiInterceptor';
+import { QuoteCardComponent } from './components/quote-card/quote-card.component';
 
 @NgModule({
   declarations: [

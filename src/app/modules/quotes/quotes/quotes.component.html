@@ -1,15 +1,11 @@
-<div class="container text-center">
-    <div class="row row-cols-2">
-      <div class="col" *ngFor="let quote of quotes">
-        <div class="card" style="width: 40rem; margin: 1em; background-color: #093009; color:aliceblue">
-            <div class="card-body">
+<div style="padding: 2em; display: block ruby; text-align: center; margin: 2em;">
+  <input type="text" class="form-control" style="width: 30em;" placeholder="Search by character" (input)="filterQuotes($event)">
+</div>
 
-                <i class="bi-quote" style="font-size: 2rem;"></i>
-                  
-                <p class="card-text"> {{quote.quote}} </p>
-                <i class="card-title"> {{quote.author}} </i>
-            </div>
-        </div>
+<div class="container text-center">
+  <div class="row row-cols-2">
+      <div *ngFor="let quote of quotes">
+          <app-quote-card [quote]="quote"></app-quote-card>
       </div>
-    </div>
   </div>
+</div>

@@ -13,4 +13,8 @@ export class QuotesService {
   getQuotes(): Observable<Quote[]> {
     return this.http.get<Quote[]>('quotes')
   }
+
+  getQuotesByCharacter(author: string):Observable<Quote[]>  {
+    return this.http.get<Quote[]>('quote?author=' + author)
+  }
 }

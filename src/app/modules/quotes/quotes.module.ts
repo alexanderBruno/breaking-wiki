@@ -5,6 +5,7 @@ import { QuotesRoutingModule } from './quotes-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ApiInterceptor } from 'src/app/core/apiInterceptor';
 import { QuotesService } from './quotes.service';
+import { QuoteCardComponent } from 'src/app/components/quote-card/quote-card.component';
 
 
 
@@ -15,7 +16,8 @@ import { QuotesService } from './quotes.service';
   imports: [
     CommonModule,
     QuotesRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    QuoteCardComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
